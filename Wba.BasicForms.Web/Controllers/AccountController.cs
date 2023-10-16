@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Wba.BasicForms.Web.ViewModels;
 
 namespace Wba.BasicForms.Web.Controllers
@@ -40,7 +41,18 @@ namespace Wba.BasicForms.Web.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            //populate the countries dropdown
+            //create the viewmodel
+            var accountRegisterViewModel = new AccountRegisterViewModel();
+            accountRegisterViewModel.Countries
+                = new List<SelectListItem>
+                {
+                    new SelectListItem{ Text = "Italië" ,Value = "1"},
+                    new SelectListItem{ Text = "België" ,Value = "2"},
+                    new SelectListItem{ Text = "Iran" ,Value = "3"},
+                };
+
+            return View(accountRegisterViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
