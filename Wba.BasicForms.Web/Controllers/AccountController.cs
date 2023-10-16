@@ -23,6 +23,12 @@ namespace Wba.BasicForms.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(AccountLoginViewModel accountLoginViewModel)
         {
+            //check the model state
+            if(!ModelState.IsValid)
+            {
+                return View(accountLoginViewModel);
+            }
+            
             //handles the form data
             var username = accountLoginViewModel.Username;
             var password = accountLoginViewModel.Password;
