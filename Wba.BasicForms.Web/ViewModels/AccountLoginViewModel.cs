@@ -6,7 +6,7 @@ namespace Wba.BasicForms.Web.ViewModels
     public class AccountLoginViewModel
     {
         [Display(Name = "Gebruikersnaam")]
-        [EmailAddress(ErrorMessage = "Graag en email ingeven!")]
+        [EmailAddress(ErrorMessage = "Graag correct email formaat ingeven!")]
         [Required(ErrorMessage = "Email verplicht!")]
         public string Username { get; set; }
         [Display(Name = "Wachtwoord")]

@@ -40,8 +40,10 @@ namespace Wba.BasicForms.Web.Controllers
                 //redirect to reset the form data 
                 return RedirectToAction("Index", "Home");
             }
-            //If errors
-            //return view
+            //If credentials are wrong
+            //create a custom error
+            ModelState.AddModelError(string.Empty, "Wrong credentials");
+            //return view with the viewmodel 
             return View(accountLoginViewModel);
         }
         [HttpGet]
@@ -65,6 +67,7 @@ namespace Wba.BasicForms.Web.Controllers
         public IActionResult Register(AccountRegisterViewModel accountRegisterViewModel)
         {
             //simulate registration
+            //if user exists
             //if ok redirect
             return RedirectToAction("Registered");
             //else return View()
